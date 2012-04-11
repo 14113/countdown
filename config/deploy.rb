@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 
-server "countdown.14113.cz", :web, :app, :db, primary: true
+server "14113.cz", :web, :app, :db, primary: true
 
 set :application, "countdown"
 set :user, "deployer"
