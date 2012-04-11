@@ -1,0 +1,25 @@
+<header>
+  <div class="fix960">
+    <h1 class="left">
+      <a href="#"><%= image_tag "logo.png", :alt=>"The ultimate countdown app" %></a>
+    </h1>
+
+    <div class="right">
+      <div id="appInfo"></div>
+      <div id="newTimer">
+        <a href="#" id="newTimerBtn"></a>
+        <div id="newTimerDialog">
+          <form id="target">
+            <input type="text" placeholder="What'll happen?" id="name"/>
+            <input type="text" placeholder="Aky Today?" id="date"/>
+            <input type="text" placeholder="When exactly?" id="time"/>
+            <input type="submit" value=""/>
+            <input type="reset" value="Cancel"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<%= render 'counter' %>

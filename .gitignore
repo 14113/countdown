@@ -1,0 +1,12 @@
+/.bundle
+.DS_Store
+
+db/*.sqlite3
+
+log/*.log
+tmp/
+
+/config/database.yml
+nbproject/
+/public/sitemap.xml
+
