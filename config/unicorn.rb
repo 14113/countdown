@@ -1,6 +1,6 @@
 root = "/home/deployer/apps/countdown/current"
 working_directory root
-pid "#{root}/tmp/pids/unicorn.pid"
+pid "#{root}/tmp/pids/unicorn_countdown.pid"
 stderr_path "#{root}/log/unicorn.log"
 stdout_path "#{root}/log/unicorn.log"
 
