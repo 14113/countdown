@@ -12,6 +12,8 @@ set :scm, "git"
 set :repository, "git@github.com:14113/#{application}.git"
 set :branch, "master"
 
+set :rails_env, "production"
+
 set :default_environment, {
   "PATH" => "/home/#{user}/.rbenv/shims:/home/#{user}/.rbenv/bin:$PATH",
 }
