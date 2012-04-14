@@ -39,11 +39,15 @@ section {
     text-align: center;
     color: #333;
     font-size: 24px;
+    } span {
+        color: #aaa;
+}
+.data{
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 auto;
 }
 
-section span {
-    color: #aaa;
-}
 
 .fix960 {
     width: 960px;
@@ -60,6 +64,10 @@ section span {
 
 .clear {
     clear: both;
+}
+
+.counterInfo span{
+    padding: 6px;
 }
 
 .delete {

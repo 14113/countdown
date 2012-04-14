@@ -1,11 +1,10 @@
 class window.Counter
-    constructor: (container)->
-        @$container = $(container)
-        
+    constructor: (@$container)->
+        @$container.hide()
         this.createAttributes()
         this.createCouner()
         this.bindEvents()
-        
+        @$container.delay(300).fadeIn()
         
     createAttributes: ->
         @id = @$container.data("id")
@@ -18,15 +17,19 @@ class window.Counter
         @$container.find(".data").countdown(
             {startTime:@difference,
             timerEnd: ->
-                alert('Start!')
+                #alert('Start!')
             })
         
         
     bindEvents: ->
-        $(".delete").on("click",=>
-            @$container.fadeOut()
-            console.log "delete!"
-            return false
+        _this = this
+        @$container.find(".delete").on("click",(e)->
+            result = confirm("Are you sure?")
+            if result
+                _this.$container.fadeOut()
+                link = $(this).attr("href")
+                $.ajax({async:true,url:link,type:'post',data: {"_method":"delete"}})
+            false
         )
         
     difference: ->
@@ -41,7 +44,7 @@ class window.Counter
         now_ms = new Date().getTime()    
         difference_ms = (date_ms - now_ms)
         if difference_ms<0
-            return null
+            return "00:00:00:00"
 
 
         sec = Math.floor(difference_ms/1000 );

@@ -1,0 +1,16 @@
+<div style="height: 200px;"></div>
+
+<section>
+  <div class="fix960">
+    <div class="counters">
+      <%= render @counter %>
+    </div>
+  </div>
+</section>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.app = new window.App(".counters")
+  });
+</script>
