@@ -1,7 +1,7 @@
 class Counter < ActiveRecord::Base
-#  validates :date,
-#    :date => {:after => Proc.new { Date.today - 1.day  },
-#    :before => Proc.new { Date.today + 3.year} }
+  validates :date,
+    :date => {:after => Proc.new { Date.today - 1.day  },
+    :before => Proc.new { Date.today + 3.year} }
   validates :time, :presence => true,:if => :time_valid?
   validates :name, :presence => true
   
