@@ -34,7 +34,7 @@ gem 'unicorn'
 # Deploy with Capistrano
 gem 'capistrano'
 
-gem "date_validator", "~> 0.6.3"
+# gem "date_validator", "~> 0.6.3"
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

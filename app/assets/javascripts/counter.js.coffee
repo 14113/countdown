@@ -1,5 +1,5 @@
 class window.Counter
-    constructor: (@$container)->
+    constructor: (@$container,@width = 53,@eight=77)->
         @$container.hide()
         this.createAttributes()
         this.createCouner()
@@ -16,6 +16,8 @@ class window.Counter
     createCouner: ->
         @$container.find(".data").countdown(
             {startTime:@difference,
+            digitWidth:@width,
+            digitHeight:@height,
             timerEnd: ->
                 #alert('Start!')
             })

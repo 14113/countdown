@@ -1,16 +1,10 @@
-<div style="height: 200px;"></div>
-
-<section>
-  <div class="fix960">
-    <div class="counters">
-      <%= render @counter %>
-    </div>
-  </div>
-</section>
+<div class="counter" id="c<%= @counter.id %>" data-date="<%= @counter.date.strftime("%d/%m/%Y") %>" data-time="<%= @counter.time.strftime("%H:%M") %>" data-name="<%= @counter.name %>" data-id="<%= @counter.id %>">
+  <div class="data"></div>
+</div>
 
 
 <script type="text/javascript">
   $(document).ready(function(){
-    window.app = new window.App(".counters")
+    new window.Counter($(".counter"));
   });
 </script>
