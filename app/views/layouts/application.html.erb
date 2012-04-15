@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Countdown</title>
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+    <title>Countdown App</title>
+    <meta name="description" content="Free application for couting event. You can also put this counter to your website." />
+    <meta name="authors" content="Adam Martinik & Martin Zahuta" />
+    
+    <link rel="fluid-icon" href="/assets/fluidicon.png" title="GitHub" />
+    <!--link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /-->
+    
+    <meta property="og:title" content="Countdown"/>
+    <meta property="og:type" content="application:time"/>
+    <meta property="og:url" content="https://github.com/14113/countdown"/>
+    <meta property="og:image" content="http://countdown.14113.cz/assets/fluidicon.png"/>
+    <meta property="og:site_name" content="Countdown"/>
+    <meta property="og:description" content="Countdown - Free application for couting events. You can also put this counters in your website."/>
+    
+    
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
