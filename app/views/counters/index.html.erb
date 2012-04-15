@@ -13,7 +13,7 @@
       <div id="newTimer">
         <a href="#" id="newTimerBtn"></a>
         <div id="newTimerDialog">
-          <%= form_for @counter,:id=>"targer" do |f| %>
+          <%= form_for @counter,:remote => true,:id=>"targer" do |f| %>
             <% if @counter.errors.any? %>
               <div id="errorExplanation">
                 <h3><%= pluralize(@counter.errors.count, "error") %> prohibited this post from being saved:</h3>
@@ -25,8 +25,11 @@
               </div>
             <% end %>
             <%= f.text_field :name, :placeholder=>"What'll happen?" %>
+            <div class="validation" id="valid_name"></div>
             <%= f.text_field :date, :placeholder=>"Aky Today?" %>
+            <div class="validation" id="valid_date"></div>
             <%= f.text_field :time, :placeholder=>"When exactly?" %>
+            <div class="validation" id="valid_time"></div>
             <input type="submit" value=""/>
             <input type="reset" value="Cancel"/>
           <% end %>

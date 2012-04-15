@@ -31,6 +31,8 @@ class window.Counter
                 _this.$container.fadeOut()
                 link = $(this).attr("href")
                 $.ajax({async:true,url:link,type:'post',data: {"_method":"delete"}})
+                try
+                    _gaq.push(['_trackPageview',"/counters/delete"])
             false
         )
         

@@ -1,7 +1,13 @@
 <% unless counter.nil? %>
   <div class="counter" id="c<%= counter.id %>" data-date="<%= counter.get_date %>" data-time="<%= counter.get_time %>" data-name="<%= counter.name %>" data-id="<%= counter.id %>">
     <div class="counterInfo">
-      <%= counter.name %><span>on</span><%= counter.get_date %><span>at</span><%= counter.get_time %>
+      <% unless counter.name.blank? %>
+        <%= counter.name %><span>on</span>
+      <% end %>
+      <%= counter.get_date %>
+      <% unless counter.time.blank? %>
+        <span>at</span><%= counter.get_time %>
+      <% end %>
       <%= link_to "",counter, :method => :delete ,:class=>"delete" if @current_user==counter.user_id %>
     </div>
     <div class="data"></div>

@@ -11,6 +11,12 @@ class window.App
         this.createTime()
         this.bindEvents()
         this.createCounters()
+        this.addValidation()
+      
+    addValidation: ->
+        @validator = new window.Validate()
+        @validator.validDate(@date)
+        @validator.validTime(@time)
         
         
     createCounters: ->
@@ -22,6 +28,7 @@ class window.App
         counter = @$container.find(".counter").last()
         @counters.push new window.Counter(counter)
         this.submit()
+        
         $('body').delay(100).animate({scrollTop: $("section").height()+138}, 800);
         
     submit: ->
@@ -40,18 +47,27 @@ class window.App
             @day = "0"+@day
         if @mounth < 10
             @mounth = "0"+@mounth
-        if @hour < 10
-            @hour = "0"+@hour
-        if @minutes < 10
-            @minutes = "0"+@minutes   
+        if @hour < 20
+            @hour = "20"
+        else
+            @hour = "23"
+            
+            
+       
+        @minutes = "00"   
   
         
     bindEvents: ->
         _this = this 
         
+        $("#new_counter").on("submit",->
+            try
+                _gaq.push(['_trackPageview',"/counters/create"])
+        )
+        
         $("#newTimerBtn").on("click",=>
             @name.focus()) 
-            
+           
         @time.focus( ->
             self = $(this)
             if self.val()==""

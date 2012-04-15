@@ -1,9 +1,8 @@
 class Counter < ActiveRecord::Base
-#  validates :date,
-#    :date => {:after => Proc.new { Date.today - 1.day  },
-#    :before => Proc.new { Date.today + 3.year} }
-  validates :time, :presence => true,:if => :time_valid?
-  validates :name, :presence => true
+  #  validates :date,
+  #    :date => {:after => Proc.new { Date.today - 1.day  },
+  #    :before => Proc.new { Date.today + 3.year} }
+  before_save :time ,:if => :time_valid?
   
   def time_valid?
     begin
@@ -14,8 +13,7 @@ class Counter < ActiveRecord::Base
         return true
       end
     rescue
-      errors.add(:time, " must be on format mm:hh")
-      return false
+      return true
     end
   end
   
@@ -24,7 +22,11 @@ class Counter < ActiveRecord::Base
   end
   
   def get_time
-    self.time.strftime("%H:%M")  unless self.time.nil?
+    if self.time.nil?
+      "00:00"
+    else
+      self.time.strftime("%H:%M") 
+    end
   end
   
 end

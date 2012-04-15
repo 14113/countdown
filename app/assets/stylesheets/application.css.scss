@@ -93,11 +93,28 @@ section {
     height: 135px;
     margin-right: 20px;
     background: image-url('appInfo.png') center no-repeat;
+
 }
 
 #newTimer {
-    display: inline-block
-        ;
+    display: inline-block;
+
+    #newTimerDialog form input[type=text] {
+        width: 256px;
+        margin-bottom: 1px;
+        padding: 12px 0 0 8px;
+        color: #666;
+        background: #f5f5f5;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    .validation{
+        color: red;
+        min-height: 4px;
+        displey: block;
+        margin: 0 0 10px 10px;
+    }
 }
 
 #newTimerBtn {
@@ -109,7 +126,7 @@ section {
 
 #newTimerDialog {
     width: 260px;
-    height: 160px;
+    min-height: 160px;
     margin: 8px 0 0 3px;
     padding: 20px;
     background: #fff;
