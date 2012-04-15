@@ -1,7 +1,7 @@
 <header>
   <div class="fix960">
     <h1 class="left">
-      <a href="#"><%= image_tag "logo.png", :alt=>"The ultimate countdown app" %></a>
+      <%= link_to (image_tag "logo.png", :alt=>"The ultimate countdown app"), root_path %>
     </h1>
 
     <% flash.each do |key, msg| %>
@@ -13,7 +13,7 @@
       <div id="newTimer">
         <a href="#" id="newTimerBtn"></a>
         <div id="newTimerDialog">
-          <%= form_for @counter, :remote => true,:id=>"targer" do |f| %>
+          <%= form_for @counter,:id=>"targer" do |f| %>
             <% if @counter.errors.any? %>
               <div id="errorExplanation">
                 <h3><%= pluralize(@counter.errors.count, "error") %> prohibited this post from being saved:</h3>
