@@ -34,7 +34,7 @@ gem 'unicorn'
 # Deploy with Capistrano
 gem 'capistrano'
 
-gem 'google-analytics-rails'
+#gem 'google-analytics-rails'
 
 #gem "date_validator", "~> 0.6.3"
 

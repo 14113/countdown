@@ -62,7 +62,6 @@ Countdown::Application.configure do
   config.active_support.deprecation = :notify
   
   # Google Analytics ID
-#  GA.tracker = "UA-29602545-1"
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
