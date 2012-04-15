@@ -2,7 +2,7 @@ class User
   attr_accessor  :user_id 
   
   def initialize(cookie)
-    @cookies = cookie
+    puts @cookies = cookie
     current_id
   end
   

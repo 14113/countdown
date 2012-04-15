@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
    
   private
   def authorize_user
-    @current_user = User.new(cookies).user_id
+    @current_user = session[:session_id]
   end
 end
