@@ -4,6 +4,9 @@ class window.App
         @$container = $(container)
         @$dialog = $("#newTimerDialog").hide()
         @counters = []
+        @time = @$dialog.find("#counter_time")
+        @name = @$dialog.find("#counter_name")
+        @date = @$dialog.find("#counter_date")
         
         this.createTime()
         this.bindEvents()
@@ -18,13 +21,13 @@ class window.App
     addCounter:(value)->
         counter = @$container.find(".counter").last()
         @counters.push new window.Counter(counter)
-        location.href = "#"+counter.attr("id")
         this.submit()
+        $('body').delay(100).animate({scrollTop: $("section").height()+138}, 800);
         
     submit: ->
-        this.time().val("")
-        this.name().val("")
-        this.date().val("")
+        @time.val("")
+        @name.val("")
+        @date.val("")
         
     createTime: ->
         now = new Date()
@@ -40,30 +43,22 @@ class window.App
         if @hour < 10
             @hour = "0"+@hour
         if @minutes < 10
-            @minutes = "0"+@minutes
-        
-        
-    time:->
-        @$dialog.find("#counter_time")
-    name:->
-        @$dialog.find("#counter_name")
-    date:->
-        @$dialog.find("#counter_date")
-        
+            @minutes = "0"+@minutes   
+  
         
     bindEvents: ->
         _this = this 
         
         $("#newTimerBtn").on("click",=>
-            this.name().focus())
+            @name.focus()) 
             
-        this.time().focus( ->
+        @time.focus( ->
             self = $(this)
             if self.val()==""
                 self.val(_this.hour+":"+_this.minutes)
             )
             
-        this.date().focus( ->
+        @date.focus( ->
             self = $(this)
             if self.val()==""
                 self.val(_this.day + "/" + _this.mounth + "/" + _this.year)
@@ -71,7 +66,7 @@ class window.App
             
         setTimeout(=>
             @$dialog.slideDown('inline-block')
-            this.name().focus()
+            @name.focus()
         , 1000);
 
     

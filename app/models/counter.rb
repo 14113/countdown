@@ -19,4 +19,12 @@ class Counter < ActiveRecord::Base
     end
   end
   
+  def get_date
+    self.date.strftime("%d/%m/%Y") unless self.date.nil?
+  end
+  
+  def get_time
+    self.time.strftime("%H:%M")  unless self.time.nil?
+  end
+  
 end

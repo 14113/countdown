@@ -22,6 +22,7 @@ class CountersController < ApplicationController
         format.html {redirect_to(root_path, :notice => 'Counter was successfully created.') }
         format.js { render }
       else
+        @counters = Counter.find_all_by_user_id @current_user
         format.html{render :action=>"index" }
         format.js { render }
       end

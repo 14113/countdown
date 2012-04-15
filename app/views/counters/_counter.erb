@@ -1,7 +1,9 @@
-<div class="counter" id="c<%= counter.id %>" data-date="<%= counter.date.strftime("%d/%m/%Y") %>" data-time="<%= counter.time.strftime("%H:%M") %>" data-name="<%= counter.name %>" data-id="<%= counter.id %>">
-  <div class="counterInfo">
-    <%= counter.name %><span>on</span><%= counter.date.strftime("%d/%m/%Y") %><span>at</span><%= counter.time.strftime("%H:%M") %>
-    <%= link_to "",counter, :method => :delete ,:class=>"delete" if @current_user==counter.user_id %>
+<% unless counter.nil? %>
+  <div class="counter" id="c<%= counter.id %>" data-date="<%= counter.get_date %>" data-time="<%= counter.get_time %>" data-name="<%= counter.name %>" data-id="<%= counter.id %>">
+    <div class="counterInfo">
+      <%= counter.name %><span>on</span><%= counter.get_date %><span>at</span><%= counter.get_time %>
+      <%= link_to "",counter, :method => :delete ,:class=>"delete" if @current_user==counter.user_id %>
+    </div>
+    <div class="data"></div>
   </div>
-  <div class="data"></div>
-</div>
+<% end %>
