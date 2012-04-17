@@ -11,17 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120414004957) do
+ActiveRecord::Schema.define(:version => 20120416233218) do
 
   create_table "counters", :force => true do |t|
     t.string   "name"
-    t.date     "date"
-    t.time     "time"
+    t.datetime "date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "user_id"
+    t.string   "title"
   end
 
-  add_index "counters", ["user_id"], :name => "index_counters_on_user_id"
+  add_index "counters", ["title"], :name => "index_counters_on_title", :unique => true
+
+  create_table "user_counters", :force => true do |t|
+    t.string   "user_id"
+    t.integer  "counter_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "hide",       :default => false
+    t.string   "title"
+  end
+
+  add_index "user_counters", ["counter_id"], :name => "index_user_counters_on_counter_id"
+  add_index "user_counters", ["title"], :name => "index_user_counters_on_title", :unique => true
+  add_index "user_counters", ["user_id"], :name => "index_user_counters_on_user_id"
 
 end

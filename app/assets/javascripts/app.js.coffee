@@ -4,9 +4,9 @@ class window.App
         @$container = $(container)
         @$dialog = $("#newTimerDialog").hide()
         @counters = []
-        @time = @$dialog.find("#counter_time")
+        @time = @$dialog.find("#counter_user_time")
         @name = @$dialog.find("#counter_name")
-        @date = @$dialog.find("#counter_date")
+        @date = @$dialog.find("#counter_user_date")
         
         this.createTime()
         this.bindEvents()
@@ -20,12 +20,12 @@ class window.App
         
         
     createCounters: ->
-        $.each(@$container.find(".counter"),(i,value)=>
+        $.each(@$container.find(".user_counter"),(i,value)=>
             @counters.push new window.Counter($(value))
         )
         
     addCounter:(value)->
-        counter = @$container.find(".counter").last()
+        counter = @$container.find(".user_counter").last()
         @counters.push new window.Counter(counter)
         this.submit()
         

@@ -1,0 +1,15 @@
+<% unless user_counter.nil? %>
+  <div class="user_counter" id="c<%= user_counter.counter.id %>" data-date="<%= user_counter.counter.user_date %>" data-time="<%= user_counter.counter.user_time %>" data-name="<%= user_counter.counter.name %>" data-id="<%= user_counter.counter.id %>">
+    <div class="counterInfo">
+      <% unless user_counter.counter.name.blank? %>
+        <%= user_counter.counter.name %><span>on</span>
+      <% end %>
+      <%= user_counter.counter.user_date %>
+      <% unless user_counter.counter.user_time.blank? %>
+        <span>at</span><%= user_counter.counter.user_time %>
+      <% end %>
+      <%= link_to "",user_counter, :method => :delete ,:class=>"delete" if user_counter.user_id==@current_user%>
+    </div>
+    <div class="data"></div>
+  </div>
+<% end %>

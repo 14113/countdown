@@ -1,32 +1,31 @@
 class Counter < ActiveRecord::Base
-  #  validates :date,
-  #    :date => {:after => Proc.new { Date.today - 1.day  },
-  #    :before => Proc.new { Date.today + 3.year} }
-  before_save :time ,:if => :time_valid?
+  has_many :user_counters, :dependent => :delete_all
   
-  def time_valid?
-    begin
-      unless self.time.min >= 0 && self.time.min < 60 && self.time.hour >=0 && self.time.hour < 24
-        errors.add(:time, " must be on format mm:hh")
-        return false
-      else
-        return true
-      end
-    rescue
-      return true
+  scope :default, where(:title => :default)
+
+  def user_date=(date)
+    d,m,y =  date.split("/")
+    puts d.to_yaml
+    puts m.to_yaml
+    puts y.nil?
+    if (d.nil? || m.nil? || y.nil?)
+      self.date = DateTime.now()+1
+    else
+      self.date = DateTime.civil(y.to_i, m.to_i, d.to_i)
     end
   end
   
-  def get_date
+  def user_time=(time)
+    h,m =  time.split(":")
+    self.date = self.date.advance(:hours=>h.to_i).advance(:minutes=>m.to_i) unless h.nil? || m.nil?   
+  end
+  
+  def user_date
     self.date.strftime("%d/%m/%Y") unless self.date.nil?
   end
   
-  def get_time
-    if self.time.nil?
-      "00:00"
-    else
-      self.time.strftime("%H:%M") 
-    end
+  def user_time
+    self.date.strftime("%H:%M") unless self.date.nil?
   end
   
 end

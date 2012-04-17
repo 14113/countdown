@@ -26,9 +26,9 @@
             <% end %>
             <%= f.text_field :name, :placeholder=>"What'll happen?" %>
             <div class="validation" id="valid_name"></div>
-            <%= f.text_field :date, :placeholder=>"Aky Today?" %>
+            <%= f.text_field :user_date, :placeholder=>"Aky Today?" %>
             <div class="validation" id="valid_date"></div>
-            <%= f.text_field :time, :placeholder=>"When exactly?" %>
+            <%= f.text_field :user_time, :placeholder=>"When exactly?" %>
             <div class="validation" id="valid_time"></div>
             <input type="submit" value=""/>
             <input type="reset" value="Cancel"/>
@@ -42,8 +42,8 @@
 <section>
   <div class="fix960">
     <div class="counters">
-      <% @counters.each do |counter| %>
-        <%= render counter %>
+      <% @user_counters.each do |user_counter| %>
+        <%= render user_counter %>
       <% end %>
     </div>
   </div>
