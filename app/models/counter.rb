@@ -17,7 +17,8 @@ class Counter < ActiveRecord::Base
   
   def user_time=(time)
     h,m =  time.split(":")
-    self.date = self.date.advance(:hours=>h.to_i).advance(:minutes=>m.to_i) unless h.nil? || m.nil?   
+    self.date = self.date.advance(:hours=>h.to_i) unless h.nil? 
+    self.date = self.date.advance(:minutes=>m.to_i) unless m.nil?   
   end
   
   def user_date
