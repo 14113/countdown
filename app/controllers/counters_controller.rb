@@ -1,6 +1,7 @@
 class CountersController < ApplicationController
   
   def create
+    
     @counter = Counter.new(params[:counter])
     @counter.user_counters.new(:user_id=>@current_user)
     @user_counter = @counter.user_counters

@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20120416233218) do
   end
 
   add_index "user_counters", ["counter_id"], :name => "index_user_counters_on_counter_id"
-  add_index "user_counters", ["title", "user_id"], :name => "index_user_counters_on_title_and_user_id", :unique => true
   add_index "user_counters", ["user_id"], :name => "index_user_counters_on_user_id"
 
 end
