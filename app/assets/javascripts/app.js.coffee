@@ -26,6 +26,7 @@ class window.App
         
     addCounter:(value)->
         counter = @$container.find(".user_counter").last()
+        console.log counter
         @counters.push new window.Counter(counter)
         this.submit()
         

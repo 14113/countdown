@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20120416233218) do
     t.string   "title"
   end
 
-  add_index "counters", ["title"], :name => "index_counters_on_title", :unique => true
+  add_index "counters", ["title"], :name => "index_counters_on_title"
 
   create_table "user_counters", :force => true do |t|
     t.string   "user_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20120416233218) do
   end
 
   add_index "user_counters", ["counter_id"], :name => "index_user_counters_on_counter_id"
-  add_index "user_counters", ["title"], :name => "index_user_counters_on_title", :unique => true
+  add_index "user_counters", ["title", "user_id"], :name => "index_user_counters_on_title_and_user_id", :unique => true
   add_index "user_counters", ["user_id"], :name => "index_user_counters_on_user_id"
 
 end
