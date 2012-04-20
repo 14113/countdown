@@ -3,11 +3,9 @@ class Counter < ActiveRecord::Base
   
   scope :default, where(:title => :default)
 
+  # Virtual attribute for datetime
   def user_date=(date)
     d,m,y =  date.split("/")
-    puts d.to_yaml
-    puts m.to_yaml
-    puts y.nil?
     if (d.nil? || m.nil? || y.nil?)
       self.date = DateTime.now()+1
     else
@@ -15,6 +13,7 @@ class Counter < ActiveRecord::Base
     end
   end
   
+  # Virtual attribute for datetime
   def user_time=(time)
     h,m =  time.split(":")
     self.date = self.date.advance(:hours=>h.to_i) unless h.nil? 
