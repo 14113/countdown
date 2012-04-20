@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
    
   private
   def authorize_user
+    ["aaa"].
     @current_user ||= session[:session_id]
   end
 end

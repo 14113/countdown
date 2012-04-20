@@ -1,6 +1,6 @@
 class window.App
     constructor: (container) ->
-        
+       	
         @$container = $(container)
         @$dialog = $("#newTimerDialog").hide()
         @counters = []
