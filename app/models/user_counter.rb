@@ -4,6 +4,8 @@ class UserCounter < ActiveRecord::Base
   scope :activ, where(:hide => 0)
   scope :default, where(:title => :default)
   
+  
+  
   # Find all counters by user_id.
   # If user dont't have counter,
   # create default counter

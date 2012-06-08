@@ -42,7 +42,6 @@ jQuery ->
                     digits.push elem
                     margin c, -(parseInt(options.startTime[i]) * options.digitHeight * options.digitImages)
                     digits[c].__max = 9
-                    console.log options.format[i]
                     switch options.format[i]
                         when "h"
                             digits[c].__max = (if (c % 2 is 0) then 2 else 9)
@@ -50,7 +49,7 @@ jQuery ->
                         when "d"
                             digits[c].__max = 9
                         when "m", "s"
-                            digits[c].__max = (if (c % 2 is 0) then 5 else 5)
+                            digits[c].__max = (if (c % 2 is 0) then 5 else 9)
                     ++c
                 else
                     elem = $("<div class=\"cntSeparator\"/>").css(float: "left").text(options.startTime[i])
